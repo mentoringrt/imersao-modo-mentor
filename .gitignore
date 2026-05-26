@@ -1,0 +1,15 @@
+﻿# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temp
+*.tmp
+*~
+
+# Sub-bundles (handoff artifacts não usados no deploy)
+references/

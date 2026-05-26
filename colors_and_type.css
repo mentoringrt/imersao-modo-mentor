@@ -1,0 +1,392 @@
+/* =========================================================
+   RT MENTORING — Color & Type Tokens
+   Authority. Direct. Premium. Results-oriented.
+   ========================================================= */
+
+/* ---------- WEB FONTS ---------- */
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* The premium workbook cover ("Modo Mentor") uses a flared
+   high-contrast serif. We pair Cormorant Garamond from Google
+   Fonts as the nearest CDN match for that title style. Flag
+   this to the designer if the official serif is named. */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap");
+
+/* =========================================================
+   COLOR SYSTEM
+   The world is mostly black. Gold is reserved for the
+   thing that matters. White is the voice. Green is the
+   "Modo Mentor" mark.
+   ========================================================= */
+:root {
+  /* ----- Brand core ----- */
+  --rt-gold-100: #f7ebcf;       /* highlight, low-emphasis bg tint */
+  --rt-gold-200: #e6cf94;       /* hover lift on gold */
+  --rt-gold-400: #c9a35a;       /* primary gold — text & accents on dark */
+  --rt-gold-500: #b8924f;       /* RT monogram, primary accents */
+  --rt-gold-600: #8f6f36;       /* pressed / shadow side of gold */
+  --rt-gold-700: #5e4720;       /* deep gold, used on light bg */
+
+  /* ----- Onyx / surface ----- */
+  --rt-black:     #000000;       /* full bleed, true black backgrounds */
+  --rt-ink-900:   #0a0a0a;       /* primary dark surface */
+  --rt-ink-800:   #141414;       /* card on black */
+  --rt-ink-700:   #1f1f1f;       /* elevated card */
+  --rt-ink-600:   #2a2a2a;       /* border on dark */
+  --rt-ink-500:   #3d3d3d;       /* divider on dark */
+  --rt-ink-400:   #6b6b6b;       /* low-emphasis text on dark */
+  --rt-ink-300:   #9a9a9a;       /* secondary text on dark */
+  --rt-ink-200:   #cfcfcf;       /* tertiary text on dark */
+  --rt-ink-100:   #efefef;       /* near-white */
+  --rt-white:     #ffffff;
+
+  /* ----- RT Mentoring forest (PRIMARY brand color for the mentorship brand) ----- */
+  --rt-forest-950: #081710;     /* full-bleed bg, near-black green */
+  --rt-forest-900: #0c1f17;     /* primary canvas */
+  --rt-forest-800: #112a1f;     /* primary surface */
+  --rt-forest-700: #1a3a2b;     /* elevated card */
+  --rt-forest-600: #2a5742;     /* border / accent */
+  --rt-forest-500: #3e7a5d;     /* hover step / interactive */
+  --rt-forest-300: #79b094;     /* soft accent on light contexts */
+  --rt-forest-100: #cfe5d8;     /* tint */
+
+  /* ----- Off-white paper (workbook interior, neutral light bg) ----- */
+  --rt-paper:     #f5efe3;
+  --rt-paper-2:   #ece4d3;
+
+  /* ----- Semantic ----- */
+  --rt-success: #2e8b57;
+  --rt-warning: #d4a437;
+  --rt-danger:  #b03a2e;
+  --rt-info:    #4a6fa5;
+
+  /* ----- Gradients ----- */
+  --rt-gradient-gold:
+    linear-gradient(180deg, #e6cf94 0%, #c9a35a 45%, #8f6f36 100%);
+  --rt-gradient-gold-text:
+    linear-gradient(180deg, #f5e2b0 0%, #c9a35a 60%, #8f6f36 100%);
+  --rt-gradient-dark-vignette:
+    radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 100%);
+  --rt-gradient-stage-light:
+    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(201,163,90,0.18) 0%, rgba(0,0,0,0) 60%);
+  --rt-gradient-forest-light:
+    radial-gradient(ellipse 70% 90% at 50% 0%, rgba(201,163,90,0.16) 0%, rgba(0,0,0,0) 65%);
+
+  /* =========================================================
+     BRAND-SCOPED ROLE TOKENS
+     Two brands live in this system:
+       RT Mentoring  → mentorship brand. Canvas = forest. Accent = gold.
+       Modo Mentor   → imersão (event) brand. Canvas = black. Accent = gold.
+     Set [data-brand="rt"] or [data-brand="modo"] on the root to
+     switch surfaces. Default = rt (mentorship).
+     ========================================================= */
+  --rt-mentoring-bg:        var(--rt-forest-900);
+  --rt-mentoring-bg-1:      var(--rt-forest-800);
+  --rt-mentoring-bg-2:      var(--rt-forest-700);
+  --rt-mentoring-border:    rgba(201,163,90,0.22);
+  --rt-mentoring-fg:        #ffffff;
+  --rt-mentoring-accent:    var(--rt-gold-400);
+
+  --modo-mentor-bg:         var(--rt-black);
+  --modo-mentor-bg-1:       var(--rt-ink-900);
+  --modo-mentor-bg-2:       var(--rt-ink-800);
+  --modo-mentor-border:     var(--rt-ink-600);
+  --modo-mentor-fg:         #ffffff;
+  --modo-mentor-accent:     var(--rt-gold-400);
+
+  /* ----- Default semantic role tokens (RT Mentoring brand = forest) ----- */
+  --bg:           var(--rt-forest-900);
+  --bg-1:         var(--rt-forest-800);
+  --bg-2:         var(--rt-forest-700);
+  --bg-3:         var(--rt-forest-600);
+  --surface:      var(--rt-forest-700);
+  --border:       rgba(201,163,90,0.22);
+  --border-soft:  rgba(255,255,255,0.08);
+
+  --fg:           var(--rt-white);
+  --fg-1:         var(--rt-ink-100);
+  --fg-2:         var(--rt-ink-200);   /* secondary copy on dark */
+  --fg-3:         var(--rt-ink-300);   /* tertiary */
+  --fg-muted:     var(--rt-ink-400);
+  --accent:       var(--rt-gold-500);
+  --accent-text:  var(--rt-gold-400);
+  --on-accent:    var(--rt-black);
+  --link:         var(--rt-gold-400);
+
+  /* =========================================================
+     RADII / SHADOW / SPACING
+     ========================================================= */
+  --r-xs: 2px;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --r-xl: 22px;
+  --r-pill: 999px;
+
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.45);
+  --shadow-lg: 0 24px 60px rgba(0,0,0,0.55);
+  --shadow-gold-glow: 0 0 0 1px rgba(201,163,90,0.5), 0 8px 30px rgba(201,163,90,0.25);
+  --inset-gold-line: inset 0 0 0 1px rgba(201,163,90,0.45);
+
+  /* =========================================================
+     TYPE SCALE
+     Montserrat for everything UI. Display gets the heavy
+     weights (700–900) and tight tracking, often UPPERCASE
+     with positive letter-spacing for the "tagline" feel.
+     ========================================================= */
+  --font-sans: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Cormorant Garamond", "Times New Roman", serif; /* premium workbook only */
+
+  --fs-eyebrow: 12px;
+  --fs-caption: 13px;
+  --fs-body:    16px;
+  --fs-lead:    18px;
+  --fs-h6:      18px;
+  --fs-h5:      22px;
+  --fs-h4:      28px;
+  --fs-h3:      36px;
+  --fs-h2:      48px;
+  --fs-h1:      64px;
+  --fs-display: 96px;
+
+  --lh-tight: 1.05;
+  --lh-snug:  1.2;
+  --lh-base:  1.5;
+  --lh-loose: 1.7;
+
+  --ls-display: -0.01em;
+  --ls-tight:   -0.005em;
+  --ls-body:    0;
+  --ls-wide:    0.04em;
+  --ls-wider:   0.12em;   /* the tagline eyebrow look */
+}
+
+/* =========================================================
+   BRAND SCOPE OVERRIDES
+   Drop [data-brand="modo"] on the root (or any subtree) to
+   flip the canvas from RT-Mentoring-forest to Modo-Mentor-black.
+   [data-brand="rt"] is the default and re-asserted for clarity.
+   ========================================================= */
+[data-brand="rt"] {
+  --bg:        var(--rt-forest-900);
+  --bg-1:      var(--rt-forest-800);
+  --bg-2:      var(--rt-forest-700);
+  --bg-3:      var(--rt-forest-600);
+  --surface:   var(--rt-forest-700);
+  --border:    rgba(201,163,90,0.22);
+}
+[data-brand="modo"] {
+  --bg:        var(--rt-black);
+  --bg-1:      var(--rt-ink-900);
+  --bg-2:      var(--rt-ink-800);
+  --bg-3:      var(--rt-ink-700);
+  --surface:   var(--rt-ink-800);
+  --border:    var(--rt-ink-600);
+}
+
+/* =========================================================
+   SEMANTIC HTML BASE
+   ========================================================= */
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-base);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display — used for stage titles, hero claims */
+.rt-display, h1.rt-display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(48px, 8vw, var(--fs-display));
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+  text-transform: uppercase;
+}
+
+/* Headings */
+h1, .rt-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  text-transform: uppercase;
+  margin: 0;
+}
+h2, .rt-h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  text-transform: uppercase;
+  margin: 0;
+}
+h3, .rt-h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  letter-spacing: 0;
+  margin: 0;
+}
+h4, .rt-h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  margin: 0;
+}
+h5, .rt-h5 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-h5);
+  line-height: var(--lh-snug);
+  margin: 0;
+}
+h6, .rt-h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-h6);
+  line-height: var(--lh-snug);
+  margin: 0;
+}
+
+/* Eyebrow — the wide-tracked, uppercase, gold accent line */
+.rt-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-eyebrow);
+  line-height: 1;
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+/* Body copy */
+p, .rt-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-base);
+  letter-spacing: var(--ls-body);
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+.rt-lead {
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  color: var(--fg-1);
+  line-height: var(--lh-base);
+}
+.rt-caption {
+  font-size: var(--fs-caption);
+  color: var(--fg-3);
+}
+
+/* The premium serif — workbook covers only */
+.rt-serif {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Gold gradient text — for the headline word that carries the promise */
+.rt-gold-text {
+  background-image: var(--rt-gradient-gold-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Links */
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 120ms ease, opacity 120ms ease;
+}
+a:hover { color: var(--rt-gold-200); }
+a:active { opacity: 0.8; }
+
+/* Selection */
+::selection { background: var(--rt-gold-500); color: var(--rt-black); }

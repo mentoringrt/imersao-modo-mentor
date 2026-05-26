@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-br" data-brand="modo">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modo Mentor · Imersão · Apresentações</title>
+  <meta name="description" content="Deck oficial da Imersão Modo Mentor — Rodrigo Thomaz · RT Mentoring. 31 slides em 1920×1080.">
+  <link rel="stylesheet" href="colors_and_type.css">
+  <style>
+    body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 48px 24px; }
+    .launcher {
+      width: 100%; max-width: 880px;
+      display: flex; flex-direction: column; gap: 32px;
+      text-align: center;
+    }
+    .marks {
+      display: flex; justify-content: center; align-items: center; gap: 24px;
+      margin-bottom: 16px;
+    }
+    .marks img.mm { height: 88px; width: auto; }
+    .marks .sep  { width: 1px; height: 40px; background: rgba(201,163,90,0.32); }
+    .marks img.rt { height: 32px; width: auto; opacity: 0.7; }
+    .launcher h1 {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -0.005em;
+      text-transform: uppercase;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .launcher h1 .gold {
+      background-image: var(--rt-gradient-gold-text);
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+    }
+    .launcher p.lead {
+      font-size: 18px; line-height: 1.6;
+      color: var(--fg-2);
+      max-width: 580px; margin: 0 auto;
+    }
+    .meta {
+      display: flex; justify-content: center; gap: 18px;
+      font-size: 12px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent-text);
+      font-weight: 600;
+    }
+    .meta .sep { color: rgba(255,255,255,0.3); }
+    .cards {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 20px; margin-top: 16px;
+    }
+    @media (max-width: 720px) { .cards { grid-template-columns: 1fr; } }
+    .card {
+      display: flex; flex-direction: column; gap: 14px;
+      padding: 36px 32px; text-align: left;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      text-decoration: none; color: inherit;
+      transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(201,163,90,0.5);
+      box-shadow: var(--shadow-gold-glow);
+    }
+    .card .badge {
+      font-size: 11px; letter-spacing: 0.2em;
+      text-transform: uppercase; font-weight: 700;
+      color: var(--accent-text);
+    }
+    .card h2 {
+      font-size: 24px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: -0.005em;
+      line-height: 1.1; margin: 0;
+    }
+    .card p {
+      font-size: 14px; line-height: 1.55;
+      color: var(--fg-3); margin: 0;
+    }
+    .card .go {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent-text);
+      margin-top: 4px;
+    }
+    .card .go .arrow { transition: transform 120ms ease; }
+    .card:hover .go .arrow { transform: translateX(4px); }
+    footer {
+      margin-top: 40px;
+      font-size: 11px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--fg-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="launcher">
+
+    <div class="marks">
+      <img class="mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <span class="sep"></span>
+      <img class="rt" src="assets/logo-rt-transparent.png" alt="RT Mentoring">
+    </div>
+
+    <h1>MODO <span class="gold">MENTOR</span></h1>
+
+    <p class="lead">
+      Deck oficial da Imersão Modo Mentor. 31 slides em 1920×1080,
+      navegáveis com setas. Pressione <b>R</b> pra voltar ao início.
+    </p>
+
+    <div class="meta">
+      <span>11 DE JUNHO</span><span class="sep">·</span>
+      <span>SÃO JOSÉ DOS CAMPOS</span><span class="sep">·</span>
+      <span>RODRIGO THOMAZ</span>
+    </div>
+
+    <div class="cards">
+
+      <a class="card" href="slides/modo-mentor/index.html">
+        <span class="badge">Apresentação ao vivo</span>
+        <h2>Abrir deck interativo</h2>
+        <p>Navegação por teclado (← →), thumbnail rail, speaker notes embutidos. Ideal pra rodar do notebook no palco.</p>
+        <span class="go">Entrar <span class="arrow">→</span></span>
+      </a>
+
+      <a class="card" href="slides/modo-mentor/index-print.html">
+        <span class="badge">Versão para impressão / PDF</span>
+        <h2>Modo print</h2>
+        <p>Layout estendido um slide por página. No Chrome, Ctrl+P → Salvar como PDF gera o material completo do workbook.</p>
+        <span class="go">Abrir <span class="arrow">→</span></span>
+      </a>
+
+    </div>
+
+    <footer>RT MENTORING · MODO MENTOR · 2026</footer>
+
+  </main>
+
+</body>
+</html>
