@@ -93,6 +93,28 @@ Durante o port pra produção, dois bugs foram resolvidos:
 Nenhum outro conteúdo foi alterado — copy, tipografia, paleta, ordem
 dos slides e speaker notes mantidos exatamente como no handoff.
 
+> Esses dois fixes são **reaplicados automaticamente** pelo script `sync.cmd`
+> sempre que você sincronizar com um novo handoff. Não precisa lembrar.
+
+---
+
+## Sincronizando com novo handoff do claude.ai/design
+
+Quando você adicionar/editar slides no claude.ai/design e exportar o ZIP:
+
+1. **Baixe o ZIP** em `~/Downloads/` (qualquer nome — script auto-detecta).
+2. **Duplo-clique em `sync.cmd`** (ou rode `.\scripts\sync-from-handoff.ps1`).
+3. O script:
+   - Acha o ZIP mais recente em Downloads
+   - Mostra preview do diff (novos, modificados, removidos)
+   - Pede confirmação
+   - Substitui arquivos no repo (preservando launcher + README + scripts)
+   - Reaplica os 2 bugs corrigidos
+   - Commit + push automático
+   - Abre a URL do Pages (rebuilda em ~30s)
+
+Veja `scripts/README.md` pra opções avançadas (`-DryRun`, `-Force`, `-SkipPush`, etc).
+
 ---
 
 ## Servindo o deck (opcional)
