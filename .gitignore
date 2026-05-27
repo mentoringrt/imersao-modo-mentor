@@ -1,4 +1,4 @@
-﻿# OS / Editor
+# OS / Editor
 .DS_Store
 Thumbs.db
 .vscode/
@@ -13,3 +13,7 @@ Thumbs.db
 
 # Sub-bundles (handoff artifacts não usados no deploy)
 references/
+
+# Handoff ZIPs (não versionar — ficam só no Downloads do user)
+*.zip
+*-handoff*/
