@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Modo Mentor · Imersão · Apresentação</title>
-  <link rel="stylesheet" href="../../colors_and_type.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="colors_and_type.css">
+  <link rel="stylesheet" href="base-styles.css">
+  <link rel="stylesheet" href="extra-styles.css">
   <script src="deck-stage.js"></script>
   <script src="image-slot.js"></script>
   <script type="application/json" id="speaker-notes">
@@ -38,6 +39,16 @@
   "Quinto bloco. AÇÃO. Sem isso, tudo que a gente fez aqui hoje vira marcador de livro. Bloco final.",
   "Funil AIDA. Atenção, interesse, desejo, ação. Toda venda passa por esses quatro estágios. O seu trabalho é levar a pessoa do topo ao fundo sem perder ela no caminho. Cada conteúdo seu tem que servir UM desses quatro.",
   "Se você fizer o que sempre fez, você terá o que sempre teve. Não é frase de para-choque. É contrato. A diferença entre quem sai daqui hoje e vende vinte mil no primeiro mês, e quem sai e não vende nada, é UMA coisa: o que vai ser feito DIFERENTE a partir de segunda.",
+  "Sexto bloco. MENTE. A gente passou as últimas horas montando sistema — avatar, promessa, esteira, autoridade, ação. Sistema sem mente preparada não anda. É aqui que muita gente trava: sabe o que fazer e mesmo assim não faz. Porque a mente ainda tá no patamar antigo. Esse bloco existe pra resolver isso.",
+  "Decora o nome: New Mind. Mente nova. Não é mentalidade de quem quer começar — é mentalidade de quem decide ocupar. E aqui vai a verdade que poucos te falam: o seu próximo nível de faturamento não tá num mercado novo. Não tá num produto mirabolante. Tá dentro do que você já entrega e ainda não viu. Para uma mente preparada, tudo vira oportunidade e negócio. Repete essa frase pra você toda vez que bater a tentação de inventar outro projeto sem ter terminado esse aqui.",
+  "Foco. Palavra que todo mundo fala e quase ninguém aplica. A regra é simples: oitenta por cento da sua energia no negócio principal. Vinte por cento em tudo o mais — oportunidades, testes, novas frentes. Quem espalha energia, espalha resultado. A maioria dos mentores que eu vejo quebra esse oitenta. Posta sobre tudo, atende qualquer um, lança qualquer coisa. E depois pergunta por que não escala. Escala vem de foco, não de variedade.",
+  "Esse é o ponto que decide se você tem negócio ou se tem hobby. Fórmula PHD. P de Paixão — o que te move. H de Habilidade — o que você entrega bem. D de Demanda — o que o mercado paga. Os três precisam se encontrar. Falta paixão? Vira sofrimento. Falta habilidade? Vira amador querendo cobrar de profissional. Falta demanda? Vira hobby caro. O ponto PHD é onde os três se cruzam. É lá que mora o seu nicho de verdade.",
+  "Aplica a oitenta vinte também na sua comunicação. Oitenta por cento do que você fala precisa bater no que realmente converte — a oferta, o avatar, a promessa, o método. Mensagem repetida, postura firme, direção clara. Os outros vinte por cento? Bastidores, variações, novas pautas. Margem pra respirar. O erro mais comum é inverter: oitenta de bastidor, vinte de oferta. Resultado? Audiência grande, venda zero.",
+  "Sétimo bloco. CORAGEM. Aqui a gente sai do método e entra no que separa quem aplica de quem só assiste. Coragem é a única coisa que não cabe em planilha. E é a única que decide o que você vai fazer segunda de manhã.",
+  "Pergunta que dói. Quanto você está disposto a perder antes de agir? Porque mudança custa. Ou você perde o conforto agora, ou você perde a vida que poderia ter daqui dez anos. Não tem terceira opção. O confortável é zero. Mudar é dez. A maioria fica no quatro, no cinco, oscila a vida inteira. Quem chega no dez decide. Quem decide, move. E lembra: a gente tá aqui pra mudar a vida de pessoas que querem mudar de vida. Se a sua não tá nesse grupo, não tem método que resolva.",
+  "Pega o caderno. Não é pra responder na cabeça — escreve. Quanto você quer fazer em um ano? Em número. Em verbo. Em data. Sem promessa solta, sem mais ou menos. Quem escreve, compromete. Quem só pensa, esquece. Eu vou esperar quinze segundos. Quinze segundos pra você assumir publicamente — pra você mesmo — o tamanho do que quer. Pronto. Agora você tem alvo.",
+  "Lei imutável. Você tem duas opções. Uma: aumenta a sua coragem. Encara o desconforto, sobe o ticket, faz a oferta, abre a boca. Duas: diminui os seus sonhos. Aceita o patamar que tá, para de reclamar, segue confortável. Não tem meio termo. Quem tenta ter sonho grande com coragem pequena, sofre os dois lados. Escolhe um.",
+  "Frase pra gravar. Seus resultados serão do tamanho da sua coragem e da sua decisão. Não do tamanho do seu plano. Não do tamanho da sua audiência. Não do tamanho do seu currículo. Coragem e decisão. As duas coisas que só você controla.",
   "Sua mentoria merece vender. Repete. Sua mentoria merece vender. Não é arrogância. É o mínimo. Você estudou, errou, entregou, evoluiu. O mercado precisa pagar por isso.",
   "Próximo passo. Aplicar para mentoria. Aqui é onde a gente continua. Quem decide subir o nível de execução, aplica. Vou ler os critérios em um minuto.",
   "E pra você que tá começando agora, ou pra quem quer trazer um amigo: a próxima edição da Imersão Modo Mentor. Garante a vaga hoje. Lote promocional vira em quarenta e oito horas.",
@@ -51,10 +62,9 @@
 
   <!-- 01 · COVER · v1 photo-led -->
   <section class="cover-photo">
-    <div class="bg-photo bg-photo--dim" style="background-image:url('../../assets/foto-auditorio.png')"></div>
+    <div class="bg-photo bg-photo--dim" style="background-image:url('assets/foto-auditorio.png')"></div>
     <div class="s-inner">
-      <span class="eyebrow"><span>IMERSÃO</span><span class="dot"></span><span>
-</span></span>
+      <span class="eyebrow"><span>IMERSÃO PREMIUM</span><span class="dot">·</span><span>RT MENTORING</span></span>
       <h1 class="headline">MODO<br><span class="gold">MENTOR</span></h1>
       <div class="meta">
         <span>11 DE JUNHO</span><span class="dot">·</span>
@@ -63,8 +73,8 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -73,7 +83,7 @@
     <div class="bg-stage"></div>
     <div class="bg-circuit"></div>
     <div class="s-inner">
-      <img class="lockup" src="../../assets/logo-modo-mentor-transparent.png" alt="Imersão Modo Mentor">
+      <img class="lockup" src="assets/logo-modo-mentor-transparent.png" alt="Imersão Modo Mentor">
       <div class="promise"><span>MÉTODO</span><span class="dot">·</span><span>AUTORIDADE</span><span class="dot">·</span><span>DIREÇÃO</span></div>
     </div>
   </section>
@@ -91,8 +101,8 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -108,15 +118,15 @@
       <div class="attr">MANIFESTO · MODO MENTOR</div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
   <!-- 05 · BIO Rodrigo -->
   <section class="bio s-split">
     <div class="bg-circuit"></div>
-    <div class="photo" style="background-image:url('../../assets/foto-rodrigo-thomaz.png')"></div>
+    <div class="photo" style="background-image:url('assets/foto-rodrigo-thomaz.png')"></div>
     <div class="body">
       <span class="role">QUEM CONDUZ</span>
       <h2>RODRIGO<br>THOMAZ</h2>
@@ -131,8 +141,8 @@
       </ul>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -147,8 +157,8 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -163,16 +173,16 @@
         <div class="pull">Você não se torna mentor sozinho.<br>Você se torna mentor entre mentores.</div>
       </div>
       <div class="grid">
-        <div class="cell" style="background-image:url('../../assets/ambiencia-2.png')"></div>
-        <div class="cell" style="background-image:url('../../assets/ambiencia-3.png')"></div>
-        <div class="cell" style="background-image:url('../../assets/ambiencia-4.png')"></div>
-        <div class="cell" style="background-image:url('../../assets/ambiencia-1.png')"></div>
-        <div class="cell" style="background-image:url('../../assets/ambiencia-5.png')"></div>
+        <div class="cell" style="background-image:url('assets/ambiencia-2.png')"></div>
+        <div class="cell" style="background-image:url('assets/ambiencia-3.png')"></div>
+        <div class="cell" style="background-image:url('assets/ambiencia-4.png')"></div>
+        <div class="cell" style="background-image:url('assets/ambiencia-1.png')"></div>
+        <div class="cell" style="background-image:url('assets/ambiencia-5.png')"></div>
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -187,8 +197,8 @@
       <div class="rule"></div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -208,8 +218,8 @@
       </p>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -228,15 +238,15 @@
         <div class="bub tl">"Nunca consigo guardar dinheiro. Sempre aparece uma conta nova."</div>
         <div class="bub tr">"Já tentei organizar minhas finanças, mas nunca consigo manter."</div>
         <div class="center">
-          <img src="../../assets/avatar-emblem.png" alt="Avatar pensa em silêncio">
+          <img src="assets/avatar-emblem.png" alt="Avatar pensa em silêncio">
         </div>
         <div class="bub bl">"Investir não é pra mim. Eu não entendo nada disso."</div>
         <div class="bub br">"Eu ganho pouco demais. Não dá pra sobrar nada."</div>
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -245,7 +255,7 @@
     <div class="bg-circuit"></div>
     <div class="col">
       <div class="head">
-        <image-slot id="nicho-financas" class="persona-slot" shape="rounded" radius="12" fit="cover" position="center 35%" src="../../assets/avatar-dividas.png" placeholder="Arraste uma foto do avatar de Finças aqui"></image-slot>
+        <image-slot id="nicho-financas" class="persona-slot" shape="rounded" radius="12" fit="cover" position="center 35%" src="assets/avatar-dividas.png" placeholder="Arraste uma foto do avatar de Finanças aqui"></image-slot>
         <div class="row">
           <div class="meta">
             <span class="badge">NICHO · FINANÇAS</span>
@@ -273,7 +283,7 @@
     </div>
     <div class="col">
       <div class="head">
-        <image-slot id="nicho-emagrecimento" class="persona-slot" shape="rounded" radius="12" fit="cover" position="center 25%" src="../../assets/avatar-espelho.png" placeholder="Arraste uma foto do avatar de Emagrecimento aqui"></image-slot>
+        <image-slot id="nicho-emagrecimento" class="persona-slot" shape="rounded" radius="12" fit="cover" position="center 25%" src="assets/avatar-espelho.png" placeholder="Arraste uma foto do avatar de Emagrecimento aqui"></image-slot>
         <div class="row">
           <div class="meta">
             <span class="badge">NICHO · EMAGRECIMENTO</span>
@@ -300,8 +310,8 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -330,8 +340,8 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -346,8 +356,8 @@
       <div class="attr">EUGENE SCHWARTZ</div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -362,8 +372,8 @@
       <div class="rule"></div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -396,8 +406,8 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -410,8 +420,8 @@
       <div class="attr">RODRIGO THOMAZ</div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -426,8 +436,8 @@
       <div class="rule"></div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -471,14 +481,16 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
   <!-- 18 · BRIDGE diagram -->
   <section class="bridge">
-    <div class="bg-circuit"></div>
+    <div class="bg-photo" style="background-image:url('assets/bridge-gold-night.png');opacity:0.55"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.85) 100%);z-index:0"></div>
+    <div class="bg-circuit" style="opacity:0.35"></div>
     <div class="s-inner">
       <span class="eyebrow" style="margin-bottom:18px"><span>A PONTE</span><span class="dot">·</span><span>O DESENHO DA VENDA</span></span>
       <h2 class="headline headline--sm" style="margin:0">VOCÊ NÃO VENDE INFORMAÇÃO.<br>VOCÊ VENDE <span class="gold">TRAVESSIA</span>.</h2>
@@ -502,28 +514,29 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
   <!-- 19 · BRIDGE v2 photo-led -->
   <section class="bridge-photo">
-    <div class="bg-photo bg-photo--dim" style="background-image:url('../references/ref-bridge-product.png')"></div>
+    <div class="bg-photo" style="background-image:url('assets/rodrigo-imersao-aplicativo.png')"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.92) 100%);z-index:0"></div>
     <div class="s-inner">
       <span class="eyebrow"><span>A PONTE</span><span class="dot">·</span><span>VARIAÇÃO</span></span>
       <h2>SEU PRODUTO É <span class="gold">PONTE</span>.<br>NÃO É DESTINO.</h2>
       <p class="sub">Quem confunde produto com destino, perde o cliente no meio da travessia. A sua função é levar do lado A ao lado B — passo a passo.</p>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
   <!-- 20 · QUOTE rastros -->
   <section class="quote">
-    <div class="bg-photo bg-photo--vignette" style="background-image:url('../../assets/foto-bloco-1.png');opacity:0.35"></div>
+    <div class="bg-photo bg-photo--vignette" style="background-image:url('assets/foto-bloco-1.png');opacity:0.35"></div>
     <div class="bg-stage"></div>
     <div class="s-inner">
       <div class="marks">"</div>
@@ -531,8 +544,8 @@
       <div class="attr">RODRIGO THOMAZ</div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -547,8 +560,8 @@
       <div class="rule"></div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -571,8 +584,8 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -592,8 +605,8 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -606,8 +619,8 @@
       <div class="attr">RODRIGO THOMAZ</div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -622,8 +635,8 @@
       <div class="rule"></div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -650,8 +663,8 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -664,8 +677,395 @@
       <div class="attr">RODRIGO THOMAZ</div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEW BLOCKS · 06 MENTE + 07 CORAGEM (inserted block)
+       ============================================================ -->
+  <!-- ============================================================
+       01 · SECTION DIVIDER 06 — MENTE
+       ============================================================ -->
+  <section class="section-div section-div-06" data-label="01 Mente — Divisor">
+    <div class="bg-stage"></div>
+    <div class="bg-circuit"></div>
+    <div class="s-inner">
+      <div class="num">06</div>
+      <h2 class="label">MENTE</h2>
+      <div class="sub">PREPARAR A MENTE É PREPARAR O NEGÓCIO</div>
+      <div class="rule"></div>
+    </div>
+    <div class="chrome">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02 · MÉTODO NEW MIND — type-led concept
+       ============================================================ -->
+  <section class="newmind" data-label="02 Método NEW MIND">
+    <div class="bg-stage"></div>
+    <div class="bg-circuit"></div>
+    <div class="s-inner">
+      <div class="stack">
+        <div class="label-row">
+          <span class="pip"></span>
+          <span class="lab">MÉTODO · NEW MIND</span>
+        </div>
+        <h1 class="display">
+          <span class="a">NOVO</span>
+          <span class="b">DINHEIRO</span>
+        </h1>
+        <div class="meta">
+          <div class="col">
+            <span class="h">A IDEIA</span>
+            <p>O próximo nível de faturamento não está num mercado novo. Está dentro do negócio e do conhecimento que você já tem — e ainda não viu.</p>
+          </div>
+          <div class="col">
+            <span class="h">A FRASE QUE GUIA</span>
+            <div class="quote">Para uma mente preparada, <span class="gold">tudo vira oportunidade</span> e negócio.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chrome">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       03 · REGRA 80/20 DO FOCO — donut
+       ============================================================ -->
+  <section class="donut-slide" data-label="03 Regra 80/20 — Foco">
+    <div class="bg-stage"></div>
+    <div class="bg-circuit"></div>
+    <div class="s-inner">
+      <div class="copy">
+        <span class="eyebrow"><span>REGRA 80/20</span><span class="dot">·</span><span>ALOCAÇÃO DE ENERGIA</span></span>
+        <h2>FOCO É O QUE <span class="accent">DECIDE</span>.</h2>
+        <p class="lead-p">Quem espalha energia, espalha resultado. O método é simples: oito de cada dez horas, no negócio principal. As outras duas, em tudo que pode virar oportunidade.</p>
+        <div class="legend">
+          <div class="leg gold-row">
+            <div class="pct">80%</div>
+            <div class="body">
+              <span class="k">PRINCIPAL</span>
+              <span class="v">Foco total no seu negócio central.</span>
+            </div>
+          </div>
+          <div class="leg muted-row">
+            <div class="pct">20%</div>
+            <div class="body">
+              <span class="k">EXPANSÃO</span>
+              <span class="v">Outros negócios. Oportunidades. Testes.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="visual">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <defs>
+            <linearGradient id="goldDonut" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f3d27e"/>
+              <stop offset="55%" stop-color="#d8a64a"/>
+              <stop offset="100%" stop-color="#a07426"/>
+            </linearGradient>
+            <filter id="donutGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="2" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- background track -->
+          <circle cx="100" cy="100" r="78" fill="none" stroke="#1c1c1c" stroke-width="28"/>
+          <!-- 20% segment (muted) -->
+          <circle cx="100" cy="100" r="78" fill="none"
+                  stroke="rgba(255,255,255,0.18)" stroke-width="28"
+                  stroke-dasharray="98.02 392.08"
+                  transform="rotate(-90 100 100)"
+                  stroke-linecap="butt"/>
+          <!-- 80% segment (gold) -->
+          <circle cx="100" cy="100" r="78" fill="none"
+                  stroke="url(#goldDonut)" stroke-width="28"
+                  stroke-dasharray="392.08 490.10"
+                  stroke-dashoffset="-98.02"
+                  transform="rotate(-90 100 100)"
+                  stroke-linecap="butt"
+                  filter="url(#donutGlow)"/>
+          <!-- inner hairline ring -->
+          <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(216,166,74,0.25)" stroke-width="0.5"/>
+        </svg>
+        <div class="center-label">
+          <span class="small">FOCO</span>
+          <span class="big">80<span style="font-size:0.5em;vertical-align:0.3em">%</span></span>
+          <span class="tag">PRINCIPAL</span>
+        </div>
+      </div>
+    </div>
+    <div class="chrome">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       04 · FÓRMULA PHD — Venn diagram
+       ============================================================ -->
+  <section class="phd" data-label="04 Fórmula PHD">
+    <div class="bg-stage"></div>
+    <div class="bg-circuit"></div>
+    <div class="s-inner">
+      <div class="copy">
+        <span class="eyebrow"><span>FÓRMULA PHD</span><span class="dot">·</span><span>NICHO COM TRAÇÃO</span></span>
+        <h2>O <span class="stroke">PONTO</span><br>QUE VENDE.</h2>
+        <p class="sub">A força do seu negócio nasce onde paixão, habilidade e demanda se encontram. Falta um — vira hobby, vira sofrimento, vira mercado vazio.</p>
+        <div class="triplet">
+          <div class="row">
+            <span class="letter">P</span>
+            <span class="word">Paixão</span>
+            <span class="gloss">o que te move</span>
+          </div>
+          <div class="row">
+            <span class="letter">H</span>
+            <span class="word">Habilidade</span>
+            <span class="gloss">o que você entrega</span>
+          </div>
+          <div class="row">
+            <span class="letter">D</span>
+            <span class="word">Demanda</span>
+            <span class="gloss">o que o mercado paga</span>
+          </div>
+        </div>
+      </div>
+      <div class="visual">
+        <svg viewBox="-60 -20 720 680" aria-hidden="true">
+          <defs>
+            <radialGradient id="phdGoldFill" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(243,210,126,0.30)"/>
+              <stop offset="100%" stop-color="rgba(216,166,74,0.05)"/>
+            </radialGradient>
+            <linearGradient id="phdStroke" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f3d27e"/>
+              <stop offset="100%" stop-color="#a07426"/>
+            </linearGradient>
+            <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(243,210,126,0.55)"/>
+              <stop offset="60%" stop-color="rgba(216,166,74,0.15)"/>
+              <stop offset="100%" stop-color="rgba(216,166,74,0)"/>
+            </radialGradient>
+          </defs>
+          <!-- ambient glow center -->
+          <circle cx="300" cy="320" r="160" fill="url(#centerGlow)"/>
+          <!-- three overlapping circles -->
+          <g fill="url(#phdGoldFill)" stroke="url(#phdStroke)" stroke-width="1.8" opacity="0.95">
+            <!-- top: Paixão -->
+            <circle cx="300" cy="225" r="170"/>
+            <!-- bottom left: Habilidade -->
+            <circle cx="218" cy="370" r="170"/>
+            <!-- bottom right: Demanda -->
+            <circle cx="382" cy="370" r="170"/>
+          </g>
+          <!-- labels on each lobe -->
+          <g font-family="Montserrat, sans-serif" font-weight="900" text-anchor="middle">
+            <text x="300" y="32" fill="#f3d27e" font-size="28" letter-spacing="4">PAIXÃO</text>
+            <text x="40" y="570" fill="#f3d27e" font-size="28" letter-spacing="4" text-anchor="start">HABILIDADE</text>
+            <text x="560" y="570" fill="#f3d27e" font-size="28" letter-spacing="4" text-anchor="end">DEMANDA</text>
+          </g>
+          <!-- connector lines from labels to lobes -->
+          <g stroke="rgba(216,166,74,0.4)" stroke-width="1" fill="none">
+            <path d="M300 50 L300 80"/>
+            <path d="M115 555 L165 480"/>
+            <path d="M485 555 L435 480"/>
+          </g>
+          <!-- center dot -->
+          <circle cx="300" cy="320" r="6" fill="#f3d27e">
+            <animate attributeName="r" values="4;7;4" dur="2.4s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+        <div class="center-tag">
+          <div class="k">PONTO PHD</div>
+          <div class="v">SEU<br>NICHO</div>
+        </div>
+      </div>
+    </div>
+    <div class="chrome">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       05 · FOCO DE COMUNICAÇÃO 80/20 — split bar
+       ============================================================ -->
+  <section class="split80" data-label="05 Foco de Comunicação">
+    <div class="bg-stage"></div>
+    <div class="bg-circuit"></div>
+    <div class="s-inner">
+      <span class="eyebrow"><span>FOCO DE COMUNICAÇÃO</span><span class="dot">·</span><span>O QUE FALAR · COM QUE PESO</span></span>
+      <h2 class="headline headline--sm" style="margin:18px 0 0">CLAREZA NA <span class="gold">FRENTE</span>.<br>EXPANSÃO NA MARGEM.</h2>
+      <div class="bar-row">
+        <div class="seg lg">
+          <span class="lab">PESO PRINCIPAL</span>
+          <span class="pct">80%</span>
+        </div>
+        <div class="seg sm">
+          <span class="lab">MARGEM</span>
+          <span class="pct">20%</span>
+        </div>
+      </div>
+      <div class="legend-row">
+        <div class="item lg">
+          <span class="name">O que realmente converte.</span>
+          <p>A oferta, o avatar, a promessa, o método. Mensagem repetida, postura firme, direção clara. É aqui que a autoridade se constrói.</p>
+        </div>
+        <div class="item sm">
+          <span class="name">O que expande o universo.</span>
+          <p>Bastidores, variações, novas pautas, oportunidades adjacentes. Margem para respirar, sem perder o eixo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="chrome">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       06 · SECTION DIVIDER 07 — CORAGEM
+       ============================================================ -->
+  <section class="section-div section-div-07" data-label="06 Coragem — Divisor">
+    <div class="bg-stage"></div>
+    <div class="bg-circuit"></div>
+    <div class="s-inner">
+      <div class="num">07</div>
+      <h2 class="label">CORAGEM</h2>
+      <div class="sub">DECISÃO É O QUE SEPARA A ANTES E O DEPOIS</div>
+      <div class="rule"></div>
+    </div>
+    <div class="chrome">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       07 · CORAGEM, DECISÃO E MOVIMENTO — eixo 0/10
+       ============================================================ -->
+  <section class="axis-slide" data-label="07 Coragem, Decisão e Movimento">
+    <div class="bg-stage"></div>
+    <div class="bg-circuit"></div>
+    <div class="s-inner">
+      <div class="copy">
+        <span class="eyebrow"><span>CORAGEM · DECISÃO · MOVIMENTO</span></span>
+        <h2>MUDAR DE VIDA<br>EXIGE <span class="gold">DECISÃO</span>.</h2>
+        <p class="prov">“Quanto você está disposto a perder <span class="gold">antes de agir</span>?”</p>
+        <p class="sub">O crescimento exige desconforto. A diferença entre quem fica e quem move é o ponto em que se aceita perder algo agora para ganhar tudo depois.</p>
+      </div>
+      <div class="axis">
+        <div class="rail">
+          <div class="tick top">
+            <div class="num">10</div>
+            <div class="stack">
+              <span class="tag">PONTO DE DECISÃO</span>
+              <span class="lab">MUDAR</span>
+            </div>
+          </div>
+          <div class="tick bot">
+            <div class="num">0</div>
+            <div class="stack">
+              <span class="tag">ZONA DE INÉRCIA</span>
+              <span class="lab">CONFORTÁVEL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chrome">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       08 · PROVOCAÇÃO — slide interativo minimalista
+       ============================================================ -->
+  <section class="provoke" data-label="08 Provocação — 1 ano">
+    <div class="bg-stage"></div>
+    <div class="bg-circuit"></div>
+    <div class="s-inner">
+      <div class="top-row">
+        <span class="pip"></span>
+        <span class="lab">PROVOCAÇÃO</span>
+        <span class="rule"></span>
+      </div>
+      <h2>QUANTO VOCÊ QUER<br>FAZER EM <span class="gold">1 ANO</span>?</h2>
+      <div class="write">
+        <span class="hint">Escreva aqui — em número, em verbo, em data.</span>
+        <div class="line"></div>
+        <div class="line short"></div>
+      </div>
+    </div>
+    <div class="chrome">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       09 · CORAGEM × SONHOS — split
+       ============================================================ -->
+  <section class="coragem-sonhos" data-label="09 Coragem × Sonhos">
+    <div class="s-inner">
+      <div class="panel left">
+        <span class="tag">UM CAMINHO</span>
+        <span class="verb">Aumenta sua</span>
+        <h2 class="word">CORAGEM</h2>
+        <div class="arrows" aria-hidden="true">
+          <svg viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 22 L32 6 L60 22" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+          </svg>
+          <svg viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.6">
+            <path d="M4 22 L32 6 L60 22" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+          </svg>
+        </div>
+      </div>
+      <div class="panel right">
+        <span class="tag">OU O OUTRO</span>
+        <span class="verb">Ou diminui os seus</span>
+        <h2 class="word">SONHOS</h2>
+        <div class="arrows" aria-hidden="true">
+          <svg viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 10 L32 26 L60 10" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+          </svg>
+          <svg viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.6">
+            <path d="M4 10 L32 26 L60 10" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+          </svg>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </div>
+    <div class="chrome">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10 · QUOTE FINAL — Resultado = Coragem + Decisão
+       ============================================================ -->
+  <section class="quote quote-coragem" data-label="10 Quote — Resultados">
+    <div class="bg-stage"></div>
+    <div class="bg-circuit"></div>
+    <div class="s-inner">
+      <div class="marks">“</div>
+      <blockquote>Seus resultados serão do<br>tamanho da sua <span class="gold">coragem</span><br>e da sua <span class="gold">decisão</span>.</blockquote>
+      <div class="attr">RODRIGO THOMAZ</div>
+    </div>
+    <div class="chrome">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -680,14 +1080,14 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
   <!-- 30 · CTA v1 · Aplicar para mentoria -->
   <section class="cta">
-    <div class="bg-photo" style="background-image:url('../../assets/foto-imersao-app.png')"></div>
+    <div class="bg-photo" style="background-image:url('assets/foto-imersao-app.png')"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.92) 100%);z-index:0"></div>
     <div class="bg-stage"></div>
     <div class="s-inner">
@@ -700,8 +1100,8 @@
       </div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -717,8 +1117,8 @@
       <div class="meta"><span>VAGAS LIMITADAS</span><span class="dot">·</span><span>PARCELAMENTO EM 12X</span><span class="dot">·</span><span>GARANTIA DE 7 DIAS</span></div>
     </div>
     <div class="chrome">
-      <img class="chrome-mm" src="../../assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
-      <img class="chrome-rt" src="../../assets/logo-rt-transparent.png" alt="RT">
+      <img class="chrome-mm" src="assets/logo-modo-mentor-transparent.png" alt="Modo Mentor">
+      <img class="chrome-rt" src="assets/logo-rt-transparent.png" alt="RT">
     </div>
   </section>
 
@@ -728,43 +1128,12 @@
     <div class="bg-circuit"></div>
     <div class="s-inner">
       <h2 class="gold">Obrigado.</h2>
-      <div class="logo"><img src="../../assets/logo-modo-mentor.png" alt="Modo Mentor"></div>
+      <div class="logo"><img src="assets/logo-modo-mentor.png" alt="Modo Mentor"></div>
       <div class="signoff">RODRIGO THOMAZ · RT MENTORING</div>
     </div>
   </section>
 
 </deck-stage>
 
-<script>
-(async () => {
-  try { await customElements.whenDefined('deck-stage'); } catch (e) {}
-  const ds = document.querySelector('deck-stage');
-  if (ds) {
-    // Weigh only slide children — same filter as deck-stage.length. Skipping
-    // slotted script/style/template keeps inline Babel/CSS from registering
-    // as stable "content" before the framework has mounted anything.
-    const weigh = () => {
-      let text = 0, media = 0;
-      for (const c of ds.children) {
-        const t = c.tagName;
-        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
-        text += (c.textContent || '').trim().length;
-        media += c.querySelectorAll('img,svg,canvas,video').length;
-      }
-      return text + media * 100;
-    };
-    const deadline = Date.now() + 15000;
-    let last = -1, stable = 0;
-    while (Date.now() < deadline) {
-      const n = weigh();
-      if (n > 0 && n === last) { if (++stable >= 2) break; } else { stable = 0; }
-      last = n;
-      await new Promise((r) => setTimeout(r, 250));
-    }
-  }
-  try { await document.fonts.ready; } catch (e) {}
-  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
-})();
-</script>
 </body>
 </html>

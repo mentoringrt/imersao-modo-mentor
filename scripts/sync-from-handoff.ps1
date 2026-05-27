@@ -163,30 +163,51 @@ New-Item -ItemType Directory -Force -Path $tempRoot | Out-Null
 
 Expand-Archive -Path $ZipPath -DestinationPath $tempRoot -Force
 
-# Achar a pasta project/ dentro do extraido (pode estar em subpasta)
-$projectDir = Get-ChildItem -Path $tempRoot -Directory -Recurse -Depth 3 |
-    Where-Object { $_.Name -eq 'project' } |
+# Suportamos DOIS formatos de export do claude.ai/design:
+#
+#  Formato A (handoff antigo): zip contem `<algum-nome>/project/...`
+#    O deck principal vive em `slides/modo-mentor/index.html`.
+#
+#  Formato B (Canva atual):   zip contem arquivos na raiz, sem subpasta `project/`.
+#    O deck principal vive em `Modo Mentor - Deck Completo.html` na raiz.
+#
+# Em ambos os casos, o "source dir" e' o diretorio que contem `colors_and_type.css`.
+
+# 1) Procura subpasta project/ (formato A)
+$sourceDir = Get-ChildItem -Path $tempRoot -Directory -Recurse -Depth 3 |
+    Where-Object { $_.Name -eq 'project' -and (Test-Path (Join-Path $_.FullName 'colors_and_type.css')) } |
     Select-Object -First 1
 
-if (-not $projectDir) {
-    # Alguns handoffs podem ter os arquivos no root
-    $projectDir = Get-ChildItem -Path $tempRoot -Directory |
+# 2) Se nao achou, ve se a raiz do zip ja tem os arquivos (formato B)
+if (-not $sourceDir) {
+    if (Test-Path (Join-Path $tempRoot 'colors_and_type.css')) {
+        $sourceDir = Get-Item $tempRoot
+    }
+}
+
+# 3) Senao, qualquer subpasta de primeiro nivel que tenha o CSS
+if (-not $sourceDir) {
+    $sourceDir = Get-ChildItem -Path $tempRoot -Directory |
         Where-Object { Test-Path (Join-Path $_.FullName 'colors_and_type.css') } |
         Select-Object -First 1
 }
 
-if (-not $projectDir) {
-    throw "Pasta 'project/' nao encontrada dentro do ZIP. Estrutura inesperada."
+if (-not $sourceDir) {
+    throw "Arquivos do design system nao encontrados no ZIP (esperado colors_and_type.css em algum nivel)."
 }
 
+# Detecta formato pelo nome do diretorio fonte
+$isLegacyFormat = ($sourceDir.Name -eq 'project')
+
 Write-Step "Extraido em: $tempRoot"
-Write-Step "project/ em: $($projectDir.FullName)"
+Write-Step ("Formato detectado: " + $(if ($isLegacyFormat) { "LEGACY (project/ subpasta)" } else { "CANVA (raiz plana)" }))
+Write-Step "Source: $($sourceDir.FullName)"
 
 # -------- 3. Diff --------
 Write-Section "3. Calculando diff com o repo atual"
 
-$handoffFiles = Get-ChildItem -Path $projectDir.FullName -Recurse -File | ForEach-Object {
-    $rel = $_.FullName.Substring($projectDir.FullName.Length + 1).Replace('\', '/')
+$handoffFiles = Get-ChildItem -Path $sourceDir.FullName -Recurse -File | ForEach-Object {
+    $rel = $_.FullName.Substring($sourceDir.FullName.Length + 1).Replace('\', '/')
     if (Should-ExcludeFromHandoff $rel) { return }
     [pscustomobject]@{
         Rel       = $rel
@@ -352,31 +373,48 @@ Get-ChildItem -Path $RepoRoot -Recurse -Directory |
 # -------- 7. Reaplicar bugs corrigidos --------
 Write-Section "6. Reaplicando correcoes manuais"
 
-$deckIndexHtml = Join-Path $RepoRoot "slides/modo-mentor/index.html"
-if (Test-Path $deckIndexHtml) {
-    $content = Get-Content -Raw -LiteralPath $deckIndexHtml -Encoding UTF8
+# Aplica em QUALQUER .html no repo (path do deck principal varia entre formatos:
+#   legacy: slides/modo-mentor/index.html
+#   canva:  Modo Mentor - Deck Completo.html (raiz)
+# Aplicar em todos cobre os dois e tambem o bloco isolado "Mente e Coragem".
+
+$htmlFiles = Get-ChildItem -Path $RepoRoot -Filter "*.html" -Recurse -File |
+    Where-Object {
+        $_.FullName -notmatch '\\\.git\\' -and
+        $_.Name -ne 'index.html'  # nao mexe no nosso launcher
+    }
+
+$fixedAny = $false
+foreach ($f in $htmlFiles) {
+    $content  = Get-Content -Raw -LiteralPath $f.FullName -Encoding UTF8
     $original = $content
+    $fixedHere = @()
 
     # Bug 1: eyebrow slide 1 vazio
-    $badEyebrow = '<span class="eyebrow"><span>IMERS' + [char]0x00C3 + 'O</span><span class="dot"></span><span>'
-    if ($content -match [regex]::Escape($badEyebrow)) {
-        $content = $content -replace [regex]::Escape($badEyebrow + "`r`n</span></span>"), '<span class="eyebrow"><span>IMERSÃO PREMIUM</span><span class="dot">·</span><span>RT MENTORING</span></span>'
-        $content = $content -replace [regex]::Escape($badEyebrow + "`n</span></span>"), '<span class="eyebrow"><span>IMERSÃO PREMIUM</span><span class="dot">·</span><span>RT MENTORING</span></span>'
-        Write-Step "Fix slide 1 (eyebrow vazio) reaplicado"
+    $badEyebrowStart = '<span class="eyebrow"><span>IMERS' + [char]0x00C3 + 'O</span><span class="dot"></span><span>'
+    if ($content -match [regex]::Escape($badEyebrowStart)) {
+        $goodEyebrow = '<span class="eyebrow"><span>IMERS' + [char]0x00C3 + 'O PREMIUM</span><span class="dot">' + [char]0x00B7 + '</span><span>RT MENTORING</span></span>'
+        $content = $content -replace [regex]::Escape($badEyebrowStart + "`r`n</span></span>"), $goodEyebrow
+        $content = $content -replace [regex]::Escape($badEyebrowStart + "`n</span></span>"),   $goodEyebrow
+        $fixedHere += "eyebrow"
     }
 
     # Bug 2: typo "Fincas" -> "Financas"
-    if ($content -match "Fin" + [char]0x00E7 + "as ") {
+    if ($content -match ("Fin" + [char]0x00E7 + "as ")) {
         $content = $content -replace ("Fin" + [char]0x00E7 + "as "), ("Finan" + [char]0x00E7 + "as ")
-        Write-Step "Fix slide 11 (typo 'Fincas') reaplicado"
+        $fixedHere += "typo-financas"
     }
 
     if ($content -ne $original) {
         # Escreve UTF-8 sem BOM
-        [System.IO.File]::WriteAllText($deckIndexHtml, $content, (New-Object System.Text.UTF8Encoding $false))
-    } else {
-        Write-Step "Bugs ja estavam corretos no handoff. Nada a reaplicar."
+        [System.IO.File]::WriteAllText($f.FullName, $content, (New-Object System.Text.UTF8Encoding $false))
+        Write-Step "Fixes aplicados em $($f.Name): $($fixedHere -join ', ')"
+        $fixedAny = $true
     }
+}
+
+if (-not $fixedAny) {
+    Write-Step "Bugs ja estavam corretos. Nada a reaplicar."
 }
 
 # -------- 8. Git commit + push --------
