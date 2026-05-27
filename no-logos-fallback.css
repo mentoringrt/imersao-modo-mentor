@@ -1,0 +1,180 @@
+/* ============================================================
+   no-logos-fallback.css
+   Recompõe visualmente os slides cujo elemento central era um
+   logo. Mantém estética premium: preto · gold · linhas finas ·
+   tipografia Montserrat heavy uppercase.
+
+   Sempre carregado DEPOIS de base-styles.css e extra-styles.css
+   pra garantir prioridade na cascata.
+   ============================================================ */
+
+/* -- Defesa: caso algum logo escape do clean-up do HTML, esconde
+   via display:none ao invés de quebrar layout. */
+.chrome,
+.chrome-mm,
+.chrome-rt,
+img[src*="logo-modo-mentor"],
+img[src*="logo-rt"] {
+  display: none !important;
+}
+
+
+/* ============================================================
+   SLIDE COVER-LOGO (slide 02) — antes o lockup era o herói.
+   Agora a promise "MÉTODO · AUTORIDADE · DIREÇÃO" assume o papel.
+   ============================================================ */
+
+.cover-logo .s-inner {
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 120px 160px !important;
+}
+
+.cover-logo .promise {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 32px !important;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif !important;
+  font-size: clamp(72px, 9vw, 144px) !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.005em !important;
+  line-height: 0.98 !important;
+  color: #ffffff !important;
+  position: relative;
+  width: auto;
+  max-width: none;
+}
+
+/* esconde os "·" originais — vamos usar linhas finas no lugar */
+.cover-logo .promise > .dot {
+  display: none !important;
+}
+
+.cover-logo .promise > span:not(.dot) {
+  display: block !important;
+  position: relative;
+}
+
+/* palavra do meio (AUTORIDADE) em gold gradient — único acento dourado */
+.cover-logo .promise > span:not(.dot):nth-of-type(2) {
+  background-image: linear-gradient(180deg, #f5e2b0 0%, #c9a35a 60%, #8f6f36 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+/* linha fina dourada entre as 3 palavras (1ª/2ª e 2ª/3ª) */
+.cover-logo .promise > span:not(.dot):not(:last-of-type)::after {
+  content: '';
+  display: block;
+  width: 96px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,163,90,0.55), transparent);
+  margin: 24px auto 0;
+}
+
+/* moldura editorial discreta: 2 linhas horizontais à distância */
+.cover-logo .s-inner::before,
+.cover-logo .s-inner::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,163,90,0.32), transparent);
+  pointer-events: none;
+}
+.cover-logo .s-inner::before { top: 18%; }
+.cover-logo .s-inner::after  { bottom: 18%; }
+
+
+/* ============================================================
+   SLIDE COVER-PHOTO (slide 01) — chrome MM gigante (200px) saiu
+   do canto top-right. Pra não deixar vazio: linha vertical
+   dourada fina + ajuste do eyebrow/headline pra centralizar
+   visualmente sem o peso do logo.
+   ============================================================ */
+
+.cover-photo::after {
+  content: '';
+  position: absolute;
+  top: 60px;
+  right: 100px;
+  width: 1px;
+  height: 200px;
+  background: linear-gradient(180deg, transparent, rgba(201,163,90,0.45), transparent);
+  z-index: 5;
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   SLIDE THANKS (último) — logo central removido.
+   "Obrigado." vira herói absoluto, linha dourada divisória,
+   signoff "RODRIGO THOMAZ" como assinatura editorial.
+   ============================================================ */
+
+.thanks .s-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 56px !important;
+  padding: 120px 140px !important;
+  text-align: center;
+}
+
+.thanks h2,
+.thanks h2.gold {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif !important;
+  font-size: clamp(160px, 18vw, 280px) !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 0.95 !important;
+  margin: 0 !important;
+  background-image: linear-gradient(180deg, #f5e2b0 0%, #c9a35a 55%, #8f6f36 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  text-transform: none !important;
+}
+
+/* linha dourada divisória entre "Obrigado." e o signoff */
+.thanks .signoff {
+  position: relative;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.32em !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.78) !important;
+  padding-top: 48px;
+}
+
+.thanks .signoff::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,163,90,0.55), transparent);
+}
+
+
+/* ============================================================
+   PROTEÇÃO GERAL — qualquer ::before/::after gerado de
+   slot-imagem que apontasse pra logo (caso o componente
+   image-slot faça algo assim em runtime).
+   ============================================================ */
+
+image-slot[src*="logo-modo-mentor"],
+image-slot[src*="logo-rt"] {
+  display: none !important;
+}

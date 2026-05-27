@@ -70,10 +70,11 @@ $ExcludePathsFromHandoff = @(
 
 # Arquivos NOSSOS que NUNCA devem ser sobrescritos pelo handoff
 $PreservedFiles = @(
-    'index.html',         # nosso launcher (handoff nao tem)
-    'README.md',          # nosso (handoff tem README diferente)
+    'index.html',                # nosso launcher (handoff nao tem)
+    'README.md',                 # nosso (handoff tem README diferente)
     '.gitignore',
-    'sync.cmd'
+    'sync.cmd',
+    'no-logos-fallback.css'      # CSS que reorganiza slides apos remocao dos logos
 )
 $PreservedDirs = @(
     '.git',
@@ -370,8 +371,8 @@ Get-ChildItem -Path $RepoRoot -Recurse -Directory |
     } |
     ForEach-Object { Remove-Item -LiteralPath $_.FullName -Force -ErrorAction SilentlyContinue }
 
-# -------- 7. Reaplicar bugs corrigidos --------
-Write-Section "6. Reaplicando correcoes manuais"
+# -------- 7. Reaplicar bugs + remover logos --------
+Write-Section "6. Reaplicando correcoes manuais e removendo logos"
 
 # Aplica em QUALQUER .html no repo (path do deck principal varia entre formatos:
 #   legacy: slides/modo-mentor/index.html
@@ -384,16 +385,20 @@ $htmlFiles = Get-ChildItem -Path $RepoRoot -Filter "*.html" -Recurse -File |
         $_.Name -ne 'index.html'  # nao mexe no nosso launcher
     }
 
+$singleLineOpts = [System.Text.RegularExpressions.RegexOptions]::Singleline
+
 $fixedAny = $false
 foreach ($f in $htmlFiles) {
-    $content  = Get-Content -Raw -LiteralPath $f.FullName -Encoding UTF8
+    $content  = [System.IO.File]::ReadAllText($f.FullName, [System.Text.UTF8Encoding]::new($false))
     $original = $content
     $fixedHere = @()
 
-    # Bug 1: eyebrow slide 1 vazio
+    # ---------- Bugs corrigidos ----------
+
+    # Bug 1: eyebrow slide 1 vazio (substitui logo por "11 DE JUNHO" — sem assinatura de marca)
     $badEyebrowStart = '<span class="eyebrow"><span>IMERS' + [char]0x00C3 + 'O</span><span class="dot"></span><span>'
     if ($content -match [regex]::Escape($badEyebrowStart)) {
-        $goodEyebrow = '<span class="eyebrow"><span>IMERS' + [char]0x00C3 + 'O PREMIUM</span><span class="dot">' + [char]0x00B7 + '</span><span>RT MENTORING</span></span>'
+        $goodEyebrow = '<span class="eyebrow"><span>IMERS' + [char]0x00C3 + 'O PREMIUM</span><span class="dot">' + [char]0x00B7 + '</span><span>11 DE JUNHO</span></span>'
         $content = $content -replace [regex]::Escape($badEyebrowStart + "`r`n</span></span>"), $goodEyebrow
         $content = $content -replace [regex]::Escape($badEyebrowStart + "`n</span></span>"),   $goodEyebrow
         $fixedHere += "eyebrow"
@@ -405,16 +410,53 @@ foreach ($f in $htmlFiles) {
         $fixedHere += "typo-financas"
     }
 
+    # ---------- Remocao de logos ----------
+
+    # L1: remove <div class="chrome">...</div> (logos pequenos no canto de cada slide)
+    $beforeLen = $content.Length
+    $content = [regex]::Replace($content,
+        '\s*<div class="chrome">\s*<img class="chrome-mm"[^>]*>\s*<img class="chrome-rt"[^>]*>\s*</div>',
+        '', $singleLineOpts)
+    if ($content.Length -ne $beforeLen) { $fixedHere += "chrome-removed" }
+
+    # L2: remove <img class="lockup" ...> (logo central da cover-logo)
+    $beforeLen = $content.Length
+    $content = [regex]::Replace($content, '\s*<img class="lockup"[^>]*>\s*', "`n      ", $singleLineOpts)
+    if ($content.Length -ne $beforeLen) { $fixedHere += "lockup-removed" }
+
+    # L3: remove <div class="logo"><img></div> (logo central do thanks)
+    $beforeLen = $content.Length
+    $content = [regex]::Replace($content, '\s*<div class="logo"><img[^>]*></div>\s*', "`n      ", $singleLineOpts)
+    if ($content.Length -ne $beforeLen) { $fixedHere += "thanks-logo-removed" }
+
+    # L4: tira "RT MENTORING" do signoff (mantem apenas RODRIGO THOMAZ)
+    if ($content -match 'RODRIGO THOMAZ\s+([·\.])\s+RT MENTORING') {
+        $content = $content -replace 'RODRIGO THOMAZ\s+([·\.])\s+RT MENTORING', 'RODRIGO THOMAZ'
+        $fixedHere += "signoff-cleaned"
+    }
+
+    # L5: garante <link rel="stylesheet" href="no-logos-fallback.css"> no <head>
+    if ($content -notmatch 'href="no-logos-fallback\.css"') {
+        # Insere logo depois do link do extra-styles.css OU do base-styles.css
+        if ($content -match '<link rel="stylesheet" href="extra-styles\.css">') {
+            $content = $content -replace '(<link rel="stylesheet" href="extra-styles\.css">)', "`$1`r`n  <link rel=`"stylesheet`" href=`"no-logos-fallback.css`">"
+            $fixedHere += "css-link-added"
+        } elseif ($content -match '<link rel="stylesheet" href="base-styles\.css">') {
+            $content = $content -replace '(<link rel="stylesheet" href="base-styles\.css">)', "`$1`r`n  <link rel=`"stylesheet`" href=`"no-logos-fallback.css`">"
+            $fixedHere += "css-link-added"
+        }
+    }
+
     if ($content -ne $original) {
         # Escreve UTF-8 sem BOM
         [System.IO.File]::WriteAllText($f.FullName, $content, (New-Object System.Text.UTF8Encoding $false))
-        Write-Step "Fixes aplicados em $($f.Name): $($fixedHere -join ', ')"
+        Write-Step "$($f.Name): $($fixedHere -join ', ')"
         $fixedAny = $true
     }
 }
 
 if (-not $fixedAny) {
-    Write-Step "Bugs ja estavam corretos. Nada a reaplicar."
+    Write-Step "Nada a reaplicar — bugs ja corretos e logos ja removidos."
 }
 
 # -------- 8. Git commit + push --------
