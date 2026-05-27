@@ -210,6 +210,18 @@ $repoFiles = Get-ChildItem -Path $RepoRoot -Recurse -File | ForEach-Object {
 $handoffByRel = @{}; $handoffFiles | ForEach-Object { $handoffByRel[$_.Rel] = $_ }
 $repoByRel    = @{}; $repoFiles    | ForEach-Object { $repoByRel[$_.Rel]    = $_ }
 
+# Remove do handoff os arquivos preservados (nao queremos que o handoff
+# sobrescreva nosso launcher index.html, nosso README, etc).
+foreach ($preservedName in $PreservedFiles) {
+    if ($handoffByRel.ContainsKey($preservedName)) {
+        $handoffByRel.Remove($preservedName)
+    }
+}
+foreach ($preservedDir in $PreservedDirs) {
+    @($handoffByRel.Keys) | Where-Object { $_ -like "$preservedDir/*" -or $_ -like "$preservedDir\*" } |
+        ForEach-Object { $handoffByRel.Remove($_) }
+}
+
 $added    = @()
 $modified = @()
 $removed  = @()
